@@ -29,7 +29,6 @@
 #define GNOME_DESKTOP_USE_UNSTABLE_API
 
 #include "eel-gnome-extensions.h"
-#include "eel-stock-dialogs.h"
 
 #include <gtk/gtk.h>
 
@@ -128,11 +127,7 @@ prepend_terminal_to_command_line (const char *command_line)
 
     if (prefix == NULL) {
         g_object_unref(settings);
-        eel_show_error_dialog(
-            _("No known terminal emulator found."),
-            _("Please install a terminal emulator or specify one via gsettings."),
-            NULL
-        );
+        g_message ("No known terminal emulator found. Please install a terminal emulator or specify one via gsettings");
         return NULL;
     }
 
